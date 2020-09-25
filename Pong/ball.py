@@ -1,5 +1,5 @@
 import pygame
-from random import randint
+from random import randrange
 
 
 class Ball(pygame.sprite.Sprite):
@@ -15,8 +15,11 @@ class Ball(pygame.sprite.Sprite):
         pygame.draw.rect(self.image, color, [0, 0, self.radius, self.radius])
 
         self.rect = self.image.get_rect()
-        self.velocityX = randint(2, 5)
-        self.velocityY = randint(-5, 5)
+
+        self.epsilon = 0.80
+
+        self.velocityX = randrange(2, 5)
+        self.velocityY = randrange(-5, 5) + self.epsilon
 
     def update(self):
         self.rect.x += self.velocityX
@@ -24,4 +27,4 @@ class Ball(pygame.sprite.Sprite):
 
     def bounce(self):
         self.velocityX = -self.velocityX
-        self.velocityY = randint(-5, 5)
+        self.velocityY = self.velocityY
