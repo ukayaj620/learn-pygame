@@ -1,5 +1,5 @@
 import pygame
-from paddle import Paddle
+from Pong.paddle import Paddle
 
 pygame.init()
 
