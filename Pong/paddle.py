@@ -8,6 +8,7 @@ class Paddle(pygame.sprite.Sprite):
         super(Paddle, self).__init__()
         self.width = 25
         self.height = 100
+        self.screen_size = screen_size
 
         self.image = pygame.Surface([self.width, self.height])
         self.image.fill((255, 255, 255))
@@ -15,8 +16,6 @@ class Paddle(pygame.sprite.Sprite):
         pygame.draw.rect(self.image, color, [0, 0, self.width, self.height])
 
         self.rect = self.image.get_rect()
-
-        self.screen_size = screen_size
 
         self.speed = 10
 
